@@ -10,6 +10,10 @@ fi
 bprompt green 'pwd' '>'
 # bprompt green '\[$(tput bold)\]pwd' '>'
 
+# GitHub setup for password save
+git config --global credential.helper store
+git config --global credential.helper cache
+
 balias cdc cd "go to code directory"
 function complete_cdc {
     complete_directory_path '~/Sandbox/${USER}_*_work'
