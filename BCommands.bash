@@ -755,7 +755,7 @@ balias x 'bxterm &' "open terminal window"
 function btargz {
     local tgz=${1:-BashShellSetup.tgz}
     # [ "${tgz%/*}" == $tgz ] && tgz="$PWD/$tgz"
-    tar --exclude=CVS -cvzf $tgz -C $B_ROOT/.. ${B_ROOT##*/}
+    tar --exclude=CVS --exclude=.git -cvzf $tgz -C $B_ROOT/.. ${B_ROOT##*/}
 }
 bhelp btargz "create tar-gz backup of BashShellSetup"
 
