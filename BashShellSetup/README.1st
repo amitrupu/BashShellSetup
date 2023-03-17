@@ -1,0 +1,27 @@
+# BashShellSetup : README file
+# File: BashShellSetup/README.1st
+# Author: Amit Roy amitrupu@gmail.com
+# Date: 23-Jan-2014
+
+To install BashShellSetup, please untar BashShellSetup.tgz
+installer file in your HOME directory. Then run:
+~/BashShellSetup/BInstall.bash
+
+Then you need to 'source ~/.bashrc'.
+
+Type 'h' or 'bhelp' to get all help of BashShellSetup.
+
+To create new setup use 'bsetup edit <setup name>'. 
+A sample setup is given in ~/BashShellSetup/sample.bss.bash.
+
+Bash will source setup files in following sequence, if files exist:
+1. BashShellSetup main setup, which will be linked to ~/.bashrc
+2. ~/.bss.root to setup BashShellSetup root B_ROOT.
+   This file will be created by BInstall.bash. DO NOT DELETE THIS FILE.
+3. ~/<username>.start.bash (if file exists)
+4. ~/<username>.bash (if file exists)
+5. All setups created by bsetup command in alphabetic order i.e. ~/bss.*.bash
+6. ~/<username>.end.bash (if file exists)
+
+For any issue email me at amitrupu@gmail.com.
+
