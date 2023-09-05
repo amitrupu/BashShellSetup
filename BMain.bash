@@ -10,6 +10,15 @@ case $- in
       *) return;;
 esac
 
+# Skip sourcing from within gdb
+if [[ "$SHELL" != *bash$ ]]; then
+    export SHELL=/bin/bash
+fi
+if [[ "$(ps -o command= -p $PPID)" == gdb* ]]; then
+    echo Skipping .basrc from with gdb ...
+    return
+fi
+
 set +x
 
 # Restore initial BASH environment
