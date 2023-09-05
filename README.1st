@@ -1,7 +1,11 @@
 # BashShellSetup : README file
 # File: BashShellSetup/README.1st
 # Author: Amit Roy amitrupu@gmail.com
-# Date: 23-Jan-2014
+# Website: https://github.com/amitrupu/BashShellSetup
+# Date: 06-June-2023
+
+To download BashShellSetup, use:
+git clone https://github.com/amitrupu/BashShellSetup
 
 To install BashShellSetup, please untar BashShellSetup.tgz
 installer file in your HOME directory. Then run:

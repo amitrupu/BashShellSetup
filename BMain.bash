@@ -62,7 +62,7 @@ shopt -s cmdhist
 
 # Backspace bindings
 stty erase 
-stty werase 
+# stty werase 
 
 # Readline key binding
 bind '"\ep": history-search-backward'
