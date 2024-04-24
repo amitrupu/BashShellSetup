@@ -29,10 +29,8 @@ set ruler
 "set number
 
 " syntax setup
-" color torte
-" color delek
 syntax enable
-" highlight Cursor ctermfg=Yellow
+highlight Cursor ctermfg=Yellow
 
 "keymap --- F1-9 key mapping ---
 "keymap F1 : help on current key mapping

@@ -171,7 +171,12 @@ function bprompt {
     prompt=${prompt/user/\\u}; prompt=${prompt/host/\\h}; prompt=${prompt/history/\\!}
     prompt=${prompt/pwd/\\w}; prompt=${prompt/date/\\d}; prompt=${prompt/time/\\@}
     [ ${B_DEBUG:=0} -gt 0 ] && echo $(BMsgPrefix) : Setting terminal prompt color as $color ...
-    export PS1=$(bformat none $color "$prompt" yes)"$promptend "
+    local format=none
+    if [[ $color == *+* ]]; then
+        format=${color%+*}
+        color=${color#*+}
+    fi
+    export PS1=$(bformat $format $color "$prompt" yes)"$promptend "
     return 0
 }
 function complete_bprompt {
@@ -317,7 +322,7 @@ function boptpath {
     local oldIFS=$IFS
     IFS=:
     for v in $optValue; do
-    	IFS="$oldIFS"
+        IFS="$oldIFS"
         optValue=$(echo $optValue | sed -e "s#$v##2g" ) #-e 's/ /:/g')
     done
     IFS="$oldIFS"
