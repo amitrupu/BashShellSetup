@@ -8,12 +8,19 @@
 "  for MS-DOS and Win32:  $VIM\_vimrc
 
 " general setup
-set nocompatible 
+set nocompatible
 set nobackup
 
 set bs=2
+" gui mouse - use shift+mouse to copy paste
+set mouse=a
+" set mouse=
+" set ttymouse=xterm
+" set ttymouse=sgr
 
 " edit setup
+set ruler
+set number
 set noautoindent
 set smartindent
 set smarttab
@@ -24,9 +31,7 @@ set shiftwidth=4    " indent with 4 spaces
 set showmode
 set showmatch
 set hlsearch
-set shiftwidth=4
-set ruler
-"set number
+set incsearch
 
 " syntax setup
 syntax enable
@@ -46,19 +51,24 @@ map <silent> <F5> :set expandtab <CR>
     \ :retab <CR>
     \ :set noexpandtab <CR>
 "keymap F6 : toggle syntax highlighting
-map <silent> <F6> : if exists("g:syntax_on") <BAR>              
-    \     syntax off <BAR>                             
-    \ else <BAR>                                     
-    \     syntax enable <BAR>                                  
+map <silent> <F6> : if exists("g:syntax_on") <BAR>
+    \     syntax off <BAR>
+    \ else <BAR>
+    \     syntax enable <BAR>
     \ endif <CR>
 "keymap F7 : toggle indenting for paste
 set pastetoggle=<F7>
-"keymap F8 : -- unused --
+"keymap F8 : toggle mouse
+map <silent> <F8> : if &mouse== 'a'  <BAR>
+    \     set mouse= <BAR>
+    \ else <BAR>
+    \     set mouse=a <BAR>
+    \ endif <CR>
 "keymap F9 : toggle light & dark theme
-map <silent> <F9> : if &bg=="dark" <BAR>              
-    \     set bg=light <BAR>                             
-    \ else <BAR>                                     
-    \     set bg=dark <BAR>                                  
+map <silent> <F9> : if &bg=="dark" <BAR>
+    \     set bg=light <BAR>
+    \ else <BAR>
+    \     set bg=dark <BAR>
     \ endif <CR>
 
 " mouse mapping
@@ -68,5 +78,5 @@ map <ScrollWheelDown> <C-E>
 " read my vimrc
 :let $uservimrc = "~/.vimrc." . $USER
 :if filereadable(expand($uservimrc))
-:	source $uservimrc
+:   source $uservimrc
 :endif
